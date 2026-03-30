@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Caleb | AI Automation Engineer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+      <div class="logo">Caleb | AI Engineer<span>.</span></div>
+      <ul class="nav-links">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills-services">Skills</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">
+        <i class="fas fa-moon"></i>
+      </button>
+    </div>
+  </nav>
+
+  <main>
+    <!-- Hero Section with YOUR PHOTO placeholder -->
+    <section id="home" class="hero">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-content">
+        <h1 class="glow-text">Hi, I am Caleb</h1>
+        <p class="who-am-i"> Who am I </p>
+        <p class="intro">Aspiring AI Automation Engineer | Building intelligent workflows & future-ready systems</p>
+        <div class="hero-cta">
+          <a href="#projects" class="btn-primary">Explore Work <i class="fas fa-arrow-down"></i></a>
+        </div>
+      </div>
+      <div class="scroll-indicator">
+        <span>Scroll</span>
+        <i class="fas fa-chevron-down"></i>
+      </div>
+    </section>
+
+    <!-- Projects Section (cards + modal) -->
+    <section id="projects" class="projects section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2>Featured <span>Projects</span></h2>
+          <div class="underline"></div>
+          <p>Automation & AI solutions I've crafted</p>
+        </div>
+        <div class="projects-grid" id="projectsGrid"></div>
+      </div>
+    </section>
+
+    <!-- About Me Section -->
+    <section id="about" class="about section-padding">
+      <div class="container">
+        <div class="about-wrapper">
+          <div class="about-text">
+            <h2>About <span>Me</span></h2>
+            <div class="underline left"></div>
+            <p>I'm Caleb — a passionate AI Automation Engineer with a mission to transform repetitive tasks into intelligent, self-optimizing systems. I combine modern AI tools, API orchestration, and clean code to deliver solutions that scale.</p>
+            <p>My journey started with full-stack development and quickly evolved into the world of machine learning, RPA, and agentic AI. I believe the future is autonomous, and I'm building it one workflow at a time.</p>
+            <div class="about-highlight">
+              <i class="fas fa-code"></i> Clean code &nbsp;|&nbsp;
+              <i class="fas fa-robot"></i> AI-first mindset &nbsp;|&nbsp;
+              <i class="fas fa-cloud-upload-alt"></i> Scalable solutions
+            </div>
+          </div>
+          <div class="about-image">
+            <div class="image-placeholder">
+              <i class="fas fa-user-astronaut"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills & Services -->
+    <section id="skills-services" class="skills-services section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2>Skills & <span>Services</span></h2>
+          <div class="underline"></div>
+          <p>What I bring to the table</p>
+        </div>
+        <div class="skills-services-wrapper">
+          <div class="card-skill">
+            <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
+            <ul class="skills-list" id="skillsList"></ul>
+          </div>
+          <div class="card-skill">
+            <h3><i class="fas fa-concierge-bell"></i> Services</h3>
+            <ul class="services-list" id="servicesList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact section-padding">
+      <div class="container">
+        <div class="section-header">
+          <h2>Let's <span>Connect</span></h2>
+          <div class="underline"></div>
+          <p>Reach out — let's build something intelligent</p>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-card"><i class="fas fa-phone-alt"></i><span>+254 7084 48761</span></div>
+          <div class="contact-card"><i class="fas fa-envelope"></i><span>calebmwachira365@gmail.com</span></div>
+          <div class="contact-card"><i class="fab fa-github"></i><a href="https://github.com/Caleb0844" target="_blank">github.com/Caleb0844</a></div>
+          <div class="contact-card"><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank">linkedin.com/in/caleb-macharia-1919a3292</a></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-content">
+      <p>© 2025 Caleb — AI Automation Engineer. All visions forward.</p>
+      <div class="social-mini">
+        <a href="#"><i class="fab fa-github"></i></a>
+        <a href="#"><i class="fab fa-linkedin"></i></a>
+        <a href="#"><i class="fab fa-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- MODAL for project details (same page) -->
+  <div id="projectModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ========== PROJECTS DATA (EASY TO ADD NEW ONES) ========== -->
+  <!-- 🔽 Copy this whole block and paste a new object inside projectsData array to add a project -->
+  <script>
+    const projectsData = [
+      {
+        title: "AI Customer Support Bot",
+        description: "GPT-powered chatbot that automates 85% of support tickets with seamless human handoff.",
+        fullDetails: {
+          overview: "An intelligent chatbot built with OpenAI's GPT-4, fine-tuned on company knowledge base. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
+          techStack: "Python, LangChain, FastAPI, Redis, React frontend, Docker.",
+          results: "✅ Automated 85% of support tickets, reducing response time from hours to seconds.\n✅ Integrated sentiment analysis to prioritize urgent conversations.\n✅ Achieved 94% customer satisfaction during pilot phase."
+        }
+      },
+      {
+        title: "Workflow Automation Suite",
+        description: "Zapier-like internal tool connecting CRM, email, and analytics using n8n & Python.",
+        fullDetails: {
+          overview: "Designed a no-code automation platform for internal teams to connect CRMs, email marketing tools, and databases without writing scripts. Reduced manual data entry by 70%.",
+          techStack: "n8n, Python, PostgreSQL, Docker, REST APIs.",
+          results: "✅ Saved 30+ hours per week across departments.\n✅ Seamless integration with HubSpot, Mailchimp, and Slack."
+        }
+      },
+      {
+        title: "Smart Lead Scraper",
+        description: "AI agent that scrapes LinkedIn & web data, enriches leads, and syncs to HubSpot.",
+        fullDetails: {
+          overview: "An autonomous AI agent that scrapes LinkedIn profiles, company websites, and public records to enrich lead data, then pushes to HubSpot CRM.",
+          techStack: "Python, BeautifulSoup, Selenium, OpenAI API, Zapier webhooks.",
+          results: "✅ 3x increase in sales-qualified leads.\n✅ Real-time enrichment saved 20+ hours of manual research per week."
+        }
+      },
+      {
+  title: "My New AI Tool",
+  description: "Short description for the card.",
+  fullDetails: {
+    overview: "Detailed overview of the project goes here. Explain the problem, your solution, and how it worksDetailed overview of the project goes here. Explain the problem, your solution, and how it works.",
+    techStack: "Python, OpenAI, etc.",
+    results: "✅ Result 1\n✅ Result 2"
+  }
+}
+    ];
+  </script>
+
+  <script src="script.js"></script>
+</body>
+</html>
