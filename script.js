@@ -105,6 +105,29 @@ function initDarkMode() {
   });
 }
 
+function initMobileMenu() {
+  const menuToggle = document.getElementById('menuToggle');
+  const navLinks = document.getElementById('navLinks');
+  menuToggle.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    const icon = menuToggle.querySelector('i');
+    if (navLinks.classList.contains('open')) {
+      icon.className = 'fas fa-times';
+      menuToggle.setAttribute('aria-label', 'Close menu');
+    } else {
+      icon.className = 'fas fa-bars';
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    }
+  });
+  document.querySelectorAll('.nav-links a').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      menuToggle.querySelector('i').className = 'fas fa-bars';
+      menuToggle.setAttribute('aria-label', 'Open menu');
+    });
+  });
+}
+
 // ======================== HERO BACKGROUND FADE ON SCROLL ========================
 function initHeroScrollFade() {
   const heroBg = document.getElementById('heroBg');
@@ -161,6 +184,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Features
   initDarkMode();
+  initMobileMenu();
   initHeroScrollFade();
   initSmoothScroll();
   initStickyNav();
