@@ -1,7 +1,7 @@
 // ======================== SKILLS & SERVICES DATA ========================
 const skillsArray = [
-  "Python / JavaScript", "LangChain & LLMs", "RPA (UiPath, Automation Anywhere)",
-  "API Integration (REST, GraphQL)", "Docker & Cloud (AWS)", "Prompt Engineering"
+  "Python", "LLMs", " Automation)",
+  "API Integration REST", "Google CLoud, Prompt Engineering"
 ];
 const servicesArray = [
   "AI Workflow Consulting", "Custom Automation Development", "Chatbot Implementation",
@@ -62,7 +62,7 @@ class ModalController {
     this.modalBody.innerHTML = `
       <h3>${title}</h3>
       <p><strong>Overview</strong><br>${details.overview}</p>
-      <div class="tech"><strong>🛠 Tech Stack</strong><br>${details.techStack}</div>
+      <div class="tech"><strong> Tech Stack</strong><br>${details.techStack}</div>
       <div class="results"><strong>✨ Key Results</strong><br>${details.results.replace(/\n/g, '<br>')}</div>
     `;
     this.modal.style.display = 'flex';
