@@ -4,9 +4,21 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Caleb | AI Automation Engineer</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  <!-- Preconnect & preload for faster fonts & icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+  <noscript>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
+  </noscript>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
+  <!-- Preload hero background image for faster paint (change extension if using WebP) -->
+  <link rel="preload" as="image" href="photo1%20(1).png" type="image/png">
+  <style>
+    /* Critical inline to avoid FOUC */
+    body { opacity: 1; }
+  </style>
 </head>
 <body>
 
@@ -30,12 +42,11 @@
   </nav>
 
   <main>
-    <!-- Hero Section with YOUR PHOTO placeholder -->
     <section id="home" class="hero">
       <div class="hero-bg" id="heroBg"></div>
       <div class="hero-content">
         <h1 class="glow-text">Hi, I am Caleb</h1>
-        <p class="who-am-i"> Who am I </p>
+        <p class="who-am-i">Who am I</p>
         <p class="intro">Aspiring AI Automation Engineer | Building intelligent workflows & future-ready systems</p>
         <div class="hero-cta">
           <a href="#projects" class="btn-primary">Explore Work <i class="fas fa-arrow-down"></i></a>
@@ -47,7 +58,6 @@
       </div>
     </section>
 
-    <!-- Projects Section (cards + modal) -->
     <section id="projects" class="projects section-padding">
       <div class="container">
         <div class="section-header">
@@ -59,7 +69,6 @@
       </div>
     </section>
 
-    <!-- About Me Section -->
     <section id="about" class="about section-padding">
       <div class="container">
         <div class="about-wrapper">
@@ -83,7 +92,6 @@
       </div>
     </section>
 
-    <!-- Skills & Services -->
     <section id="skills-services" class="skills-services section-padding">
       <div class="container">
         <div class="section-header">
@@ -104,7 +112,6 @@
       </div>
     </section>
 
-    <!-- Contact Section -->
     <section id="contact" class="contact section-padding">
       <div class="container">
         <div class="section-header">
@@ -115,8 +122,8 @@
         <div class="contact-grid">
           <div class="contact-card"><i class="fas fa-phone-alt"></i><span>+254 7084 48761</span></div>
           <div class="contact-card"><i class="fas fa-envelope"></i><span>calebmwachira365@gmail.com</span></div>
-          <div class="contact-card"><i class="fab fa-github"></i><a href="https://github.com/Caleb0844" target="_blank">github.com/Caleb0844</a></div>
-          <div class="contact-card"><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank">linkedin.com/in/caleb-macharia-1919a3292</a></div>
+          <div class="contact-card"><i class="fab fa-github"></i><a href="https://github.com/Caleb0844" target="_blank" rel="noopener">github.com/Caleb0844</a></div>
+          <div class="contact-card"><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank" rel="noopener">linkedin.com/in/caleb-macharia-1919a3292</a></div>
         </div>
       </div>
     </section>
@@ -126,14 +133,14 @@
     <div class="footer-content">
       <p>© 2025 Caleb — AI Automation Engineer. All visions forward.</p>
       <div class="social-mini">
-        <a href="#"><i class="fab fa-github"></i></a>
-        <a href="#"><i class="fab fa-linkedin"></i></a>
-        <a href="#"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
       </div>
     </div>
   </footer>
 
-  <!-- MODAL for project details (same page) -->
+  <!-- MODAL -->
   <div id="projectModal" class="modal">
     <div class="modal-content">
       <span class="close-modal">&times;</span>
@@ -141,40 +148,39 @@
     </div>
   </div>
 
-  <!-- ========== PROJECTS DATA (EASY TO ADD NEW ONES) ========== -->
-  <!-- 🔽 Copy this whole block and paste a new object inside projectsData array to add a project -->
+  <!-- PROJECTS DATA -->
   <script>
     const projectsData = [
       {
         title: "RAG Customer Support Bot",
-        description: "AN intelligent chatbot built with Gemini AI, fine-tuned on company knowledge base using pinecone. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack, AI chatbot customer button.",
+        description: "An intelligent chatbot built with Gemini AI, fine-tuned on company knowledge base using Pinecone. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
         fullDetails: {
           overview: "An intelligent chatbot built with n8n and Gemini AI, fine-tuned on company knowledge base. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
-          techStack: "Python, Google cloud, n8n, Pinecone, groq.",
-          results: "✅ Automated 85% of support tickets, reducing response time from hours to seconds.\nIntegrated sentiment analysis to prioritize urgent conversations.\n Achieved 94% customer satisfaction during pilot phase."
+          techStack: "Python, Google Cloud, n8n, Pinecone, Groq.",
+          results: "✅ Automated 85% of support tickets, reducing response time from hours to seconds.\n✅ Integrated sentiment analysis to prioritize urgent conversations.\n✅ Achieved 94% customer satisfaction during pilot phase."
         }
       },
       {
         title: "MYKEJA",
-        description: "Succesfully vibe coded Local house hunting system that allows tenats to find houses for rent and landlords to list their properties. With some special features like rating to live location , 360 view and booking for views",
+        description: "Successfully vibe coded local house hunting system that allows tenants to find houses for rent and landlords to list their properties. With special features like rating to live location, 360° view, and booking for viewings.",
         fullDetails: {
           overview: "MYKEJA is a local house hunting system that allows tenants to find houses for rent and landlords to list their properties. It includes features like live location rating, 360-degree property views, and booking for viewings.",
           techStack: "React, Node.js, Express, MongoDB, Google Maps API.",
-          results: "Enabled 500+ tenants to find their ideal homes within the first 3 months.\nIntegrated real-time location ratings to enhance user trust and decision-making.\n Achieved a 4.8/5 average rating from users for ease of use and comprehensive listings."
+          results: "✅ Enabled 500+ tenants to find their ideal homes within the first 3 months.\n✅ Integrated real-time location ratings to enhance user trust and decision-making.\n✅ Achieved a 4.8/5 average rating from users."
         }
       },
-       {
-        title: " Automated Social Media Content Generator",
+      {
+        title: "Automated Social Media Content Generator",
         description: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
         fullDetails: {
           overview: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
-          techStack: "GPT-4, Buffer.",
-          results: "✅ Increased social media engagement by 40% within the first month of implementation.\nGenerated over 200 pieces of high-quality content, saving 10+ hours per week for the marketing team.\n Achieved a 25% increase in follower growth across platforms due to consistent and relevant content."
+          techStack: "GPT-4, Buffer, Python, Zapier.",
+          results: "✅ Increased social media engagement by 40% within the first month.\n✅ Generated over 200 pieces of high-quality content, saving 10+ hours per week.\n✅ Achieved 25% increase in follower growth across platforms."
         }
       }
-        ];
+    ];
   </script>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
