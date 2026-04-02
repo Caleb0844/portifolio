@@ -12,7 +12,7 @@
 
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">Caleb | AI Engineer<span>.</span></div>
+      <div class="logo">Caleb |<span>.</span></div>
       <ul class="nav-links">
         <li><a href="#home">Home</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -143,21 +143,30 @@
   <script>
     const projectsData = [
       {
-        title: "AI Customer Support Bot",
-        description: "GPT-powered chatbot that automates 85% of support tickets with seamless human handoff.",
+        title: "RAG Customer Support Bot",
+        description: "AN intelligent chatbot built with Gemini AI, fine-tuned on company knowledge base using pinecone. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack, AI chatbot customer button.",
         fullDetails: {
-          overview: "An intelligent chatbot built with OpenAI's GPT-4, fine-tuned on company knowledge base. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
-          techStack: "Python, LangChain, FastAPI, Redis, React frontend, Docker.",
-          results: "✅ Automated 85% of support tickets, reducing response time from hours to seconds.\n✅ Integrated sentiment analysis to prioritize urgent conversations.\n✅ Achieved 94% customer satisfaction during pilot phase."
+          overview: "An intelligent chatbot built with n8n and Gemini AI, fine-tuned on company knowledge base. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
+          techStack: "Python, Google cloud, n8n, Pinecone, groq.",
+          results: "✅ Automated 85% of support tickets, reducing response time from hours to seconds.\nIntegrated sentiment analysis to prioritize urgent conversations.\n Achieved 94% customer satisfaction during pilot phase."
         }
       },
       {
-        title: "Workflow Automation Suitesssss",
-        description: "Zapier-like internal tool connecting CRM, email, and analytics using n8n & Python.",
+        title: "MYKEJA",
+        description: "Succesfully vibe coded Local house hunting system that allows tenats to find houses for rent and landlords to list their properties. With some special features like rating to live location , 360 view and booking for views",
         fullDetails: {
-          overview: "Designed a no-code automation platform for internal teams to connect CRMs, email marketing tools, and databases without writing scripts. Reduced manual data entry by 70%.",
-          techStack: "n8n, Python, PostgreSQL, Docker, REST APIs.",
-          results: "✅ Saved 30+ hours per week across departments.\n✅ Seamless integration with HubSpot, Mailchimp, and Slack."
+          overview: "MYKEJA is a local house hunting system that allows tenants to find houses for rent and landlords to list their properties. It includes features like live location rating, 360-degree property views, and booking for viewings.",
+          techStack: "React, Node.js, Express, MongoDB, Google Maps API.",
+          results: "Enabled 500+ tenants to find their ideal homes within the first 3 months.\nIntegrated real-time location ratings to enhance user trust and decision-making.\n Achieved a 4.8/5 average rating from users for ease of use and comprehensive listings."
+        }
+      },
+       {
+        title: " Automated Social Media Content Generator",
+        description: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
+        fullDetails: {
+          overview: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
+          techStack: "GPT-4, Buffer.",
+          results: "✅ Increased social media engagement by 40% within the first month of implementation.\nGenerated over 200 pieces of high-quality content, saving 10+ hours per week for the marketing team.\n Achieved a 25% increase in follower growth across platforms due to consistent and relevant content."
         }
       }
         ];
