@@ -1,6 +1,6 @@
 // ======================== SKILLS & SERVICES DATA ========================
 const skillsArray = [
-  "Python", "LLMs", "Automation",
+  "Python", "LLMs", "Automation", "Version Control (Github)",
   "API Integration (REST)", "Google Cloud", "Prompt Engineering"
 ];
 const servicesArray = [
