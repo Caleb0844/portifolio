@@ -1,245 +1,230 @@
-// ======================== SKILLS & SERVICES DATA ========================
-const skillsArray = [
-  "Python", "LLMs", "Automation", "Version Control (Github)",
-  "API Integration (REST)", "Google Cloud", "Prompt Engineering"
-];
-const servicesArray = [
-  "AI Workflow Consulting", "Custom Automation Development", "Chatbot Implementation",
-  "System Integration", "Process Mining & Optimization", "Training & Workshops"
-];
+/* =============================================
+   CALEB PORTFOLIO — script.js
+   ============================================= */
 
-// ======================== PROJECT CARD COMPONENT ========================
-class ProjectCard {
-  constructor(projectData, containerId, modalController) {
-    this.title = projectData.title;
-    this.description = projectData.description;
-    this.fullDetails = projectData.fullDetails;
-    this.container = document.getElementById(containerId);
-    this.modalCtrl = modalController;
-  }
+// ── RENDER LISTS ──────────────────────────────
+function renderList(id, arr) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.innerHTML = arr.map(item => `<li>${esc(item)}</li>`).join('');
+}
 
-  render() {
+// ── ESCAPE HTML ───────────────────────────────
+function esc(str) {
+  return String(str).replace(/[&<>"']/g, m =>
+    ({ '&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;' }[m])
+  );
+}
+
+// ── MODAL ─────────────────────────────────────
+const modal     = document.getElementById('modal');
+const modalBox  = modal ? modal.querySelector('.modal-box') : null;
+const modalCont = document.getElementById('modalContent');
+const modalClose = document.getElementById('modalClose');
+
+function openModal(project) {
+  if (!modal || !modalCont) return;
+  const resultsHtml = project.results
+    .map(r => `<li>${esc(r)}</li>`)
+    .join('');
+  modalCont.innerHTML = `
+    <div class="modal-tag">// project_details</div>
+    <h3>${esc(project.title)}</h3>
+    <p class="modal-overview">${esc(project.description)}</p>
+    <div class="modal-stack-lbl">TECH_STACK</div>
+    <div class="modal-stack">${esc(project.techStack)}</div>
+    <div class="modal-results">
+      <strong>// KEY_RESULTS</strong>
+      <ul>${resultsHtml}</ul>
+    </div>
+  `;
+  modal.style.display = 'flex';
+  document.body.style.overflow = 'hidden';
+  // Focus close for accessibility
+  setTimeout(() => modalClose && modalClose.focus(), 100);
+}
+
+function closeModal() {
+  if (!modal) return;
+  modal.style.display = 'none';
+  document.body.style.overflow = '';
+}
+
+// ── BUILD PROJECT CARDS ────────────────────────
+function buildProjects() {
+  const grid = document.getElementById('projectsGrid');
+  if (!grid || typeof PROJECTS === 'undefined') return;
+  grid.innerHTML = '';
+  PROJECTS.forEach(p => {
     const card = document.createElement('div');
-    card.className = 'project-card';
+    card.className = 'project-card reveal';
     card.innerHTML = `
-      <div class="project-content">
-        <h3 class="project-title">${this.escapeHtml(this.title)}</h3>
-        <p class="project-desc">${this.escapeHtml(this.description)}</p>
-        <button class="btn-view view-details-btn">View More →</button>
-      </div>
+      <div class="project-tag">${esc(p.tag)}</div>
+      <div class="project-icon"><i class="fas ${esc(p.icon)}"></i></div>
+      <h3 class="project-title">${esc(p.title)}</h3>
+      <p class="project-desc">${esc(p.description)}</p>
+      <button class="btn-view">View details <i class="fas fa-arrow-right" style="font-size:.7rem"></i></button>
     `;
-    const btn = card.querySelector('.view-details-btn');
-    btn.addEventListener('click', () => {
-      this.modalCtrl.showDetails(this.title, this.fullDetails);
-    });
-    return card;
-  }
-
-  escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-
-  appendToGrid() {
-    if (this.container) {
-      this.container.appendChild(this.render());
-    }
-  }
-}
-
-// ======================== MODAL CONTROLLER ========================
-class ModalController {
-  constructor(modalId) {
-    this.modal = document.getElementById(modalId);
-    this.modalBody = document.getElementById('modalBody');
-    this.closeBtn = this.modal.querySelector('.close-modal');
-    this.initEvents();
-  }
-
-  initEvents() {
-    this.closeBtn.addEventListener('click', () => this.hide());
-    window.addEventListener('click', (e) => {
-      if (e.target === this.modal) this.hide();
-    });
-    // Prevent body scroll when modal is open
-    this.modal.addEventListener('touchmove', (e) => {
-      if (e.target === this.modal) e.preventDefault();
-    }, { passive: false });
-  }
-
-  showDetails(title, details) {
-    this.modalBody.innerHTML = `
-      <h3>${this.escapeHtml(title)}</h3>
-      <p><strong>Overview</strong><br>${this.escapeHtml(details.overview)}</p>
-      <div class="tech"><strong>Tech Stack</strong><br>${this.escapeHtml(details.techStack)}</div>
-      <div class="results"><strong>✨ Key Results</strong><br>${this.escapeHtml(details.results).replace(/\n/g, '<br>')}</div>
-    `;
-    this.modal.style.display = 'flex';
-    document.body.style.overflow = 'hidden';
-  }
-
-  hide() {
-    this.modal.style.display = 'none';
-    document.body.style.overflow = '';
-  }
-
-  escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-}
-
-// ======================== SKILLS MANAGER ========================
-class SkillsManager {
-  constructor(skillsArray, servicesArray) {
-    this.skills = skillsArray;
-    this.services = servicesArray;
-  }
-
-  populateSkills(ulId) {
-    const ul = document.getElementById(ulId);
-    if (ul) ul.innerHTML = this.skills.map(s => `<li>${this.escapeHtml(s)}</li>`).join('');
-  }
-
-  populateServices(ulId) {
-    const ul = document.getElementById(ulId);
-    if (ul) ul.innerHTML = this.services.map(s => `<li>${this.escapeHtml(s)}</li>`).join('');
-  }
-
-  escapeHtml(str) {
-    return str.replace(/[&<>]/g, function(m) {
-      if (m === '&') return '&amp;';
-      if (m === '<') return '&lt;';
-      if (m === '>') return '&gt;';
-      return m;
-    });
-  }
-}
-
-// ======================== DARK MODE TOGGLE ========================
-function initDarkMode() {
-  const toggle = document.getElementById('themeToggle');
-  if (!toggle) return;
-  const prefersDark = localStorage.getItem('theme') === 'dark' ||
-    (!localStorage.getItem('theme') && window.matchMedia('(prefers-color-scheme: dark)').matches);
-  if (prefersDark) document.body.classList.add('dark');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    localStorage.setItem('theme', document.body.classList.contains('dark') ? 'dark' : 'light');
+    card.querySelector('.btn-view').addEventListener('click', () => openModal(p));
+    grid.appendChild(card);
   });
 }
 
-// ======================== MOBILE MENU ========================
+// ── MOBILE MENU ───────────────────────────────
 function initMobileMenu() {
-  const menuToggle = document.getElementById('menuToggle');
+  const toggle   = document.getElementById('menuToggle');
   const navLinks = document.getElementById('navLinks');
-  if (!menuToggle || !navLinks) return;
+  if (!toggle || !navLinks) return;
 
-  menuToggle.addEventListener('click', () => {
-    navLinks.classList.toggle('open');
-    const icon = menuToggle.querySelector('i');
-    if (navLinks.classList.contains('open')) {
-      icon.className = 'fas fa-times';
-      menuToggle.setAttribute('aria-label', 'Close menu');
-    } else {
-      icon.className = 'fas fa-bars';
-      menuToggle.setAttribute('aria-label', 'Open menu');
-    }
+  function closeMenu() {
+    navLinks.classList.remove('open');
+    toggle.setAttribute('aria-expanded', 'false');
+    toggle.innerHTML = '<i class="fas fa-bars"></i>';
+  }
+
+  toggle.addEventListener('click', e => {
+    e.stopPropagation();
+    const isOpen = navLinks.classList.toggle('open');
+    toggle.setAttribute('aria-expanded', String(isOpen));
+    toggle.innerHTML = isOpen
+      ? '<i class="fas fa-times"></i>'
+      : '<i class="fas fa-bars"></i>';
   });
 
-  document.querySelectorAll('.nav-links a').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('open');
-      const icon = menuToggle.querySelector('i');
-      if (icon) icon.className = 'fas fa-bars';
-      menuToggle.setAttribute('aria-label', 'Open menu');
+  // Close on any nav link click (so mobile nav buttons actually navigate)
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      closeMenu();
     });
   });
-}
 
-// ======================== HERO FADE (debounced for performance) ========================
-function initHeroScrollFade() {
-  const heroBg = document.getElementById('heroBg');
-  if (!heroBg) return;
-  let ticking = false;
-  const updateOpacity = () => {
-    const scrollY = window.scrollY;
-    const maxScroll = window.innerHeight * 0.8;
-    let opacity = Math.max(0.3, 1 - (scrollY / maxScroll));
-    opacity = Math.min(1, opacity);
-    heroBg.style.opacity = opacity;
-    ticking = false;
-  };
-  window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateOpacity);
-      ticking = true;
+  // Close on outside click
+  document.addEventListener('click', e => {
+    if (!navLinks.contains(e.target) && !toggle.contains(e.target)) {
+      closeMenu();
     }
-  }, { passive: true });
+  });
 }
 
-// ======================== SMOOTH SCROLL & STICKY NAV ========================
+// ── SMOOTH SCROLL ─────────────────────────────
 function initSmoothScroll() {
-  document.querySelectorAll('.nav-links a, .btn-primary[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const href = this.getAttribute('href');
-      if (href && href.startsWith('#')) {
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      const href = a.getAttribute('href');
+      const target = document.querySelector(href);
+      if (target) {
         e.preventDefault();
-        const target = document.querySelector(href);
-        if (target) target.scrollIntoView({ behavior: 'smooth' });
+        const navH = document.getElementById('navbar')?.offsetHeight || 70;
+        const top = target.getBoundingClientRect().top + window.scrollY - navH;
+        window.scrollTo({ top, behavior: 'smooth' });
       }
     });
   });
 }
 
+// ── STICKY NAV ────────────────────────────────
 function initStickyNav() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
-  let ticking = false;
-  const updateShadow = () => {
-    navbar.style.boxShadow = window.scrollY > 10 ? '0 5px 20px rgba(0,0,0,0.1)' : 'none';
-    ticking = false;
-  };
   window.addEventListener('scroll', () => {
-    if (!ticking) {
-      requestAnimationFrame(updateShadow);
-      ticking = true;
-    }
+    navbar.classList.toggle('scrolled', window.scrollY > 20);
   }, { passive: true });
 }
 
-// ======================== INITIALIZE ========================
-document.addEventListener('DOMContentLoaded', () => {
-  // Make sure projectsData is globally available
-  if (typeof projectsData !== 'undefined' && projectsData.length) {
-    const modalCtrl = new ModalController('projectModal');
-    const projectsGrid = document.getElementById('projectsGrid');
-    if (projectsGrid) {
-      projectsGrid.innerHTML = '';
-      projectsData.forEach(project => {
-        const card = new ProjectCard(project, 'projectsGrid', modalCtrl);
-        card.appendToGrid();
-      });
+// ── ACTIVE NAV HIGHLIGHT ──────────────────────
+function initActiveNav() {
+  const sections = document.querySelectorAll('section[id]');
+  const links    = document.querySelectorAll('.nav-links a');
+  const navH     = document.getElementById('navbar')?.offsetHeight || 70;
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const active = document.querySelector(`.nav-links a[href="#${entry.target.id}"]`);
+        if (active) active.classList.add('active');
+      }
+    });
+  }, { rootMargin: `-${navH}px 0px -60% 0px` });
+
+  sections.forEach(s => observer.observe(s));
+}
+
+// ── SCROLL REVEAL ─────────────────────────────
+function initReveal() {
+  const els = document.querySelectorAll(
+    '.project-card, .cap-card, .clink, .about-img-col, .about-content, .stat'
+  );
+  els.forEach(el => el.classList.add('reveal'));
+
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        obs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+}
+
+// ── CONTACT FORM ──────────────────────────────
+function initForm() {
+  const btn    = document.getElementById('sendBtn');
+  const okMsg  = document.getElementById('formOk');
+  if (!btn) return;
+
+  btn.addEventListener('click', () => {
+    const name  = document.getElementById('fname')?.value.trim();
+    const email = document.getElementById('femail')?.value.trim();
+    const msg   = document.getElementById('fmsg')?.value.trim();
+
+    if (!name || !email || !msg) {
+      alert('Please fill in all fields.');
+      return;
     }
-  } else {
-    console.warn('projectsData not found or empty');
-  }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      alert('Please enter a valid email address.');
+      return;
+    }
 
-  const skillsManager = new SkillsManager(skillsArray, servicesArray);
-  skillsManager.populateSkills('skillsList');
-  skillsManager.populateServices('servicesList');
+    // Show success
+    if (okMsg) {
+      okMsg.classList.remove('hidden');
+      setTimeout(() => okMsg.classList.add('hidden'), 5000);
+    }
+    document.getElementById('fname').value  = '';
+    document.getElementById('femail').value = '';
+    document.getElementById('fmsg').value   = '';
+  });
+}
 
-  initDarkMode();
+// ── MODAL EVENTS ──────────────────────────────
+function initModal() {
+  if (!modal) return;
+
+  if (modalClose) modalClose.addEventListener('click', closeModal);
+  modal.addEventListener('click', e => {
+    if (e.target === modal) closeModal();
+  });
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape' && modal.style.display === 'flex') closeModal();
+  });
+}
+
+// ── INIT ──────────────────────────────────────
+document.addEventListener('DOMContentLoaded', () => {
+  buildProjects();
+
+  if (typeof SKILLS   !== 'undefined') renderList('skillsList',   SKILLS);
+  if (typeof SERVICES !== 'undefined') renderList('servicesList', SERVICES);
+
   initMobileMenu();
-  initHeroScrollFade();
   initSmoothScroll();
   initStickyNav();
+  initActiveNav();
+  initReveal();
+  initForm();
+  initModal();
 });

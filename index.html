@@ -4,27 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>Caleb | AI Automation Engineer</title>
-  <!-- Preconnect & preload for faster fonts & icons -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-  <noscript>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700;14..32,800&display=swap" rel="stylesheet">
-  </noscript>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
-  <!-- Preload hero background image for faster paint (change extension if using WebP) -->
-  <link rel="preload" as="image" href="photo1(1).jpg" type="image/jpg">
-  <style>
-    /* Critical inline to avoid FOUC */
-    body { opacity: 1; }
-  </style>
 </head>
 <body>
 
   <nav class="navbar" id="navbar">
     <div class="nav-container">
-      <div class="logo">Caleb<span>.</span></div>
+      <div class="logo">caleb<span class="accent">.</span></div>
       <ul class="nav-links" id="navLinks">
         <li><a href="#home">Home</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -32,155 +22,293 @@
         <li><a href="#skills-services">Skills</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="menu-toggle" id="menuToggle" aria-label="Open menu">
-        <i class="fas fa-bars"></i>
-      </button>
-      <button class="theme-toggle" id="themeToggle" aria-label="Dark/Light mode">
-        <i class="fas fa-moon"></i>
-      </button>
+      <div class="nav-actions">
+        <a href="caleb_cv.pdf" download class="btn-cv">
+          <i class="fas fa-download"></i><span> CV</span>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
   <main>
+
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
-      <div class="hero-bg" id="heroBg"></div>
-      <div class="hero-content">
-        <h1 class="glow-text">Hi, I am Caleb</h1>
-        <p class="who-am-i">Who am I</p>
-        <p class="intro">Aspiring AI Automation Engineer | Building intelligent workflows & future-ready systems</p>
-        <div class="hero-cta">
-          <a href="#projects" class="btn-primary">Explore Work <i class="fas fa-arrow-down"></i></a>
+      <div class="container hero-inner">
+        <div class="hero-text">
+          <p class="eyebrow mono">AI Automation Engineer &mdash; Nairobi, KE</p>
+          <h1>Hi, I'm <span class="accent">Caleb</span></h1>
+          <p class="hero-desc">I build intelligent workflows &amp; automation systems that turn repetitive work into <strong>autonomous pipelines</strong>.</p>
+          <div class="hero-btns">
+            <a href="#projects" class="btn-primary">See My Work</a>
+            <a href="#contact" class="btn-ghost">Contact Me</a>
+          </div>
+          <div class="hero-stats">
+            <div class="stat"><span class="sn">85%</span><span class="sl">Tickets Automated</span></div>
+            <div class="sdiv"></div>
+            <div class="stat"><span class="sn">3+</span><span class="sl">Live Projects</span></div>
+            <div class="sdiv"></div>
+            <div class="stat"><span class="sn">500+</span><span class="sl">Users Impacted</span></div>
+          </div>
         </div>
-      </div>
-      <div class="scroll-indicator">
-        <span>Scroll</span>
-        <i class="fas fa-chevron-down"></i>
+        <div class="hero-photo-col">
+          
+            
+            <span class="mono" style="font-size:.7rem;opacity:.5;margin-top:.5rem;"><img src="photo1(1).jpg" alt="Caleb" class="hero-img" /></span>
+          </div>
+          <div class="avail-badge">
+            <span class="avail-dot"></span>
+            <span class="mono">Available for work</span>
+          </div>
+        </div>
       </div>
     </section>
 
-    <section id="projects" class="projects section-padding">
+    <!-- ===== PROJECTS ===== -->
+    <section id="projects" class="section-pad alt-bg">
       <div class="container">
-        <div class="section-header">
-          <h2>Featured <span>Projects</span></h2>
-          <div class="underline"></div>
-          <p>Automation & AI solutions I've crafted</p>
+        <div class="sec-hd">
+          <p class="sec-label mono">// projects</p>
+          <h2>Featured <span class="accent">Work</span></h2>
         </div>
         <div class="projects-grid" id="projectsGrid"></div>
       </div>
     </section>
 
-    <section id="about" class="about section-padding">
+    <!-- ===== ABOUT ===== -->
+    <section id="about" class="section-pad">
       <div class="container">
-        <div class="about-wrapper">
-          <div class="about-text">
-            <h2>About <span>Me</span></h2>
-            <div class="underline left"></div>
-            <p>I'm Caleb, a passionate AI Automation Engineer with a mission to transform repetitive tasks into intelligent, self-optimizing systems. I combine modern AI tools, API orchestration, and clean code to deliver solutions that scale.</p>
-            <p>My journey started with full-stack development and quickly evolved into the world of machine learning, RPA, and agentic AI. I believe the future is autonomous, and I'm building it one workflow at a time.</p>
-            <div class="about-highlight">
-              <i class="fas fa-code"></i> Clean code &nbsp;|&nbsp;
-              <i class="fas fa-robot"></i> AI-first mindset &nbsp;|&nbsp;
-              <i class="fas fa-cloud-upload-alt"></i> Scalable solutions
-            </div>
-          </div>
-          <div class="about-image">
-            <div class="image-placeholder">
+        <div class="about-grid">
+          <div class="about-img-col">
+            <!--
+              ══════════════════════════════════════════
+              TO USE YOUR PHOTO: replace with:
+              <img src="photo1(1).jpg" alt="Caleb" class="about-img" />
+              ══════════════════════════════════════════
+            -->
+            <div class="about-placeholder">
               <i class="fas fa-user-astronaut"></i>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="skills-services" class="skills-services section-padding">
-      <div class="container">
-        <div class="section-header">
-          <h2>Skills & <span>Services</span></h2>
-          <div class="underline"></div>
-          <p>What I bring to the table</p>
-        </div>
-        <div class="skills-services-wrapper">
-          <div class="card-skill">
-            <h3><i class="fas fa-cogs"></i> Technical Skills</h3>
-            <ul class="skills-list" id="skillsList"></ul>
-          </div>
-          <div class="card-skill">
-            <h3><i class="fas fa-concierge-bell"></i> Services</h3>
-            <ul class="services-list" id="servicesList"></ul>
+          <div class="about-content">
+            <p class="sec-label mono">// about me</p>
+            <h2>The human <span class="accent">behind the bot</span></h2>
+            <p>I'm Caleb — an AI Automation Engineer based in Nairobi with a mission to transform repetitive tasks into intelligent, self-optimizing systems. I combine modern AI tools, API orchestration, and clean code to deliver solutions that scale.</p>
+            <p>My journey started with full-stack development and evolved into machine learning, RPA, and agentic AI. I believe the future is autonomous — and I'm building it one workflow at a time.</p>
+            <div class="chip-row">
+              <span class="chip"><i class="fas fa-code"></i> Clean Code</span>
+              <span class="chip"><i class="fas fa-robot"></i> AI-First</span>
+              <span class="chip"><i class="fas fa-layer-group"></i> Scalable</span>
+            </div>
+            <a href="caleb_cv.pdf" download class="btn-primary btn-icon" style="margin-top:1.75rem;">
+              <i class="fas fa-download"></i> Download CV
+            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="contact" class="contact section-padding">
+    <!-- ===== SKILLS & SERVICES ===== -->
+    <section id="skills-services" class="section-pad alt-bg">
       <div class="container">
-        <div class="section-header">
-          <h2>Let's <span>Connect</span></h2>
-          <div class="underline"></div>
-          <p>Reach out, lets go AI, Lets build the future!</p>
+        <div class="sec-hd">
+          <p class="sec-label mono">// capabilities</p>
+          <h2>Skills &amp; <span class="accent">Services</span></h2>
+        </div>
+        <div class="caps-grid">
+          <div class="cap-card">
+            <div class="cap-head">
+              <i class="fas fa-microchip"></i>
+              <h3>Technical Skills</h3>
+            </div>
+            <ul id="skillsList"></ul>
+          </div>
+          <div class="cap-card">
+            <div class="cap-head">
+              <i class="fas fa-cogs"></i>
+              <h3>Services</h3>
+            </div>
+            <ul id="servicesList"></ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT ===== -->
+    <section id="contact" class="section-pad">
+      <div class="container">
+        <div class="sec-hd">
+          <p class="sec-label mono">// contact</p>
+          <h2>Let's <span class="accent">Connect</span></h2>
+          <p class="sec-sub">Got a project in mind? Let's build something great.</p>
         </div>
         <div class="contact-grid">
-          <div class="contact-card"><i class="fas fa-phone-alt"></i><span>+254 7084 48761</span></div>
-          <div class="contact-card"><i class="fas fa-envelope"></i><span>calebmwachira365@gmail.com</span></div>
-          <div class="contact-card"><i class="fab fa-github"></i><a href="https://github.com/Caleb0844" target="_blank" rel="noopener">github.com/Caleb0844</a></div>
-          <div class="contact-card"><i class="fab fa-linkedin"></i><a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank" rel="noopener">linkedin.com/in/caleb-macharia-1919a3292</a></div>
+          <div class="contact-links">
+            <a href="mailto:calebmwachira365@gmail.com" class="clink">
+              <span class="clink-icon"><i class="fas fa-envelope"></i></span>
+              <div class="clink-info">
+                <span class="clink-label mono">email</span>
+                <span class="clink-val">calebmwachira365@gmail.com</span>
+              </div>
+            </a>
+            <a href="tel:+254708448761" class="clink">
+              <span class="clink-icon"><i class="fas fa-phone"></i></span>
+              <div class="clink-info">
+                <span class="clink-label mono">phone</span>
+                <span class="clink-val">+254 708 448 761</span>
+              </div>
+            </a>
+            <a href="https://github.com/Caleb0844" target="_blank" rel="noopener" class="clink">
+              <span class="clink-icon"><i class="fab fa-github"></i></span>
+              <div class="clink-info">
+                <span class="clink-label mono">github</span>
+                <span class="clink-val">github.com/Caleb0844</span>
+              </div>
+            </a>
+            <a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank" rel="noopener" class="clink">
+              <span class="clink-icon"><i class="fab fa-linkedin"></i></span>
+              <div class="clink-info">
+                <span class="clink-label mono">linkedin</span>
+                <span class="clink-val">caleb-macharia-1919a3292</span>
+              </div>
+            </a>
+          </div>
+          <div class="cform-wrap">
+            <div class="fg">
+              <label for="fname" class="mono">name_</label>
+              <input type="text" id="fname" placeholder="Your name" autocomplete="name">
+            </div>
+            <div class="fg">
+              <label for="femail" class="mono">email_</label>
+              <input type="email" id="femail" placeholder="you@email.com" autocomplete="email">
+            </div>
+            <div class="fg">
+              <label for="fmsg" class="mono">message_</label>
+              <textarea id="fmsg" rows="4" placeholder="Tell me about your project..."></textarea>
+            </div>
+            <button class="btn-primary btn-block" id="sendBtn">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+            <div id="formOk" class="form-ok hidden">
+              <i class="fas fa-check-circle"></i> Sent! I'll get back to you soon.
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
   </main>
 
   <footer>
-    <div class="footer-content">
-      <p>© 2025 Caleb — AI Automation Engineer. All visions forward.</p>
-      <div class="social-mini">
-        <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+    <div class="footer-inner">
+      <p class="mono footer-copy">© 2025 Caleb — AI Automation Engineer</p>
+      <div class="footer-socials">
+        <a href="https://github.com/Caleb0844" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+        <a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="mailto:calebmwachira365@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
       </div>
     </div>
   </footer>
 
   <!-- MODAL -->
-  <div id="projectModal" class="modal">
-    <div class="modal-content">
-      <span class="close-modal">&times;</span>
-      <div id="modalBody"></div>
+  <div id="modal" class="modal" role="dialog" aria-modal="true">
+    <div class="modal-box">
+      <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+      <div id="modalContent"></div>
     </div>
   </div>
 
-  <!-- PROJECTS DATA -->
+  <!--
+  ╔══════════════════════════════════════════════════════╗
+  ║           ✏️  EDIT YOUR CONTENT HERE                ║
+  ║                                                      ║
+  ║  • PROJECTS — add/remove objects in the array        ║
+  ║  • SKILLS   — add/remove strings                     ║
+  ║  • SERVICES — add/remove strings                     ║
+  ╚══════════════════════════════════════════════════════╝
+  -->
   <script>
-    const projectsData = [
+
+    /* ────────────────────────────────────────────────────────
+       PROJECTS
+       To ADD:    copy a project object and fill in the fields.
+       To REMOVE: delete the object (including the trailing ,).
+       Fields:
+         title       — project name
+         tag         — short category shown on card
+         icon        — Font Awesome icon class (fa-*)
+         description — short text shown on card
+         techStack   — comma-separated tech used
+         results     — array of bullet strings for the modal
+    ──────────────────────────────────────────────────────── */
+    const PROJECTS = [
       {
         title: "RAG Customer Support Bot",
-        description: "An intelligent chatbot built with Gemini AI, fine-tuned on company knowledge base using Pinecone. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
-        fullDetails: {
-          overview: "An intelligent chatbot built with n8n and Gemini AI, fine-tuned on company knowledge base. It handles FAQs, troubleshoots common issues, and escalates complex queries to human agents via Slack.",
-          techStack: "Python, Google Cloud, n8n, Pinecone, Groq.",
-          results: "Automated 85% of support tickets, reducing response time from hours to seconds.\nIntegrated sentiment analysis to prioritize urgent conversations.\nAchieved 94% customer satisfaction during pilot phase."
-        }
+        tag: "AI / NLP",
+        icon: "fa-comments",
+        description: "Intelligent chatbot fine-tuned on a company knowledge base using Pinecone. Handles FAQs, troubleshoots issues, and escalates complex queries to human agents via Slack.",
+        techStack: "Python · Google Cloud · n8n · Pinecone · Groq · Slack API",
+        results: [
+          "Automated 85% of support tickets — response time: hours → seconds",
+          "Integrated sentiment analysis to prioritize urgent conversations",
+          "94% customer satisfaction during pilot phase"
+        ]
       },
       {
         title: "MYKEJA",
-        description: "Successfully vibe coded local house hunting system that allows tenants to find houses for rent and landlords to list their properties. With special features like rating to live location, 360° view, and booking for viewings.",
-        fullDetails: {
-          overview: "MYKEJA is a local house hunting system that allows tenants to find houses for rent and landlords to list their properties. It includes features like live location rating, 360-degree property views, and booking for viewings.",
-          techStack: "React, Node.js, Express, MongoDB, Google Maps API.",
-          results: "Enabled 500+ tenants to find their ideal homes within the first 3 months.\n Integrated real-time location ratings to enhance user trust and decision-making.\n Achieved a 4.8/5 average rating from users."
-        }
+        tag: "Full Stack / Geo",
+        icon: "fa-home",
+        description: "House hunting platform for tenants to find rentals and landlords to list properties. Features live location rating, 360° views, and booking for viewings.",
+        techStack: "React · Node.js · Express · MongoDB · Google Maps API",
+        results: [
+          "500+ tenants found homes in the first 3 months",
+          "Real-time location ratings boosted user trust",
+          "4.8 / 5 average user rating"
+        ]
       },
       {
-        title: "Automated Social Media Content Generator",
-        description: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
-        fullDetails: {
-          overview: "An AI-powered tool that generates engaging social media content based on trending topics and user preferences. It uses GPT-4 for content creation and integrates with scheduling platforms like Buffer.",
-          techStack: "GPT-4, Buffer, Python, Zapier.",
-          results: "Increased social media engagement by 40% within the first month.\nGenerated over 200 pieces of high-quality content, saving 10+ hours per week.\nAchieved 25% increase in follower growth across platforms."
-        }
+        title: "Social Content Generator",
+        tag: "AI / Automation",
+        icon: "fa-magic",
+        description: "AI tool that generates social media content based on trending topics and user preferences, then schedules via Buffer.",
+        techStack: "GPT-4 · Buffer API · Python · Zapier",
+        results: [
+          "40% increase in engagement within month one",
+          "200+ pieces of content generated — saves 10+ hrs/week",
+          "25% follower growth across platforms"
+        ]
       }
     ];
-  </script>
 
+    /* ────────────────────────────────────────────────────────
+       SKILLS  — add or remove strings freely
+    ──────────────────────────────────────────────────────── */
+    const SKILLS = [
+      "Python",
+      "LLMs & Prompt Engineering",
+      "n8n / Zapier Automation",
+      "API Integration (REST)",
+      "Google Cloud Platform",
+      "Version Control (GitHub)",
+      "Pinecone Vector DB"
+    ];
+
+    /* ────────────────────────────────────────────────────────
+       SERVICES  — add or remove strings freely
+    ──────────────────────────────────────────────────────── */
+    const SERVICES = [
+      "AI Workflow Consulting",
+      "Custom Automation Development",
+      "Chatbot & RAG Implementation",
+      "System & API Integration",
+      "Process Mining & Optimization",
+      "AI Training & Workshops"
+    ];
+
+  </script>
   <script src="script.js" defer></script>
 </body>
 </html>
