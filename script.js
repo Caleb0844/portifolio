@@ -24,19 +24,18 @@ const modalClose = document.getElementById('modalClose');
 
 function openModal(project) {
   if (!modal || !modalCont) return;
-  const resultsHtml = project.results
-    .map(r => `<li>${esc(r)}</li>`)
-    .join('');
+  const linkHtml = project.link
+    ? `<a href="${esc(project.link)}" target="_blank" rel="noopener" class="btn-primary btn-icon modal-link">
+         <i class="fas fa-arrow-up-right-from-square"></i> View Project
+       </a>`
+    : '';
   modalCont.innerHTML = `
     <div class="modal-tag">// project_details</div>
     <h3>${esc(project.title)}</h3>
     <p class="modal-overview">${esc(project.description)}</p>
     <div class="modal-stack-lbl">TECH_STACK</div>
     <div class="modal-stack">${esc(project.techStack)}</div>
-    <div class="modal-results">
-      <strong>// KEY_RESULTS</strong>
-      <ul>${resultsHtml}</ul>
-    </div>
+    ${linkHtml}
   `;
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
