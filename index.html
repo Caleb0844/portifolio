@@ -242,7 +242,7 @@
          icon        — Font Awesome icon class (fa-*)
          description — short text shown on card
          techStack   — comma-separated tech used
-         results     — array of bullet strings for the modal
+         link        — URL to the live project / repo (leave "" if none)
     ──────────────────────────────────────────────────────── */
     const PROJECTS = [
       {
@@ -251,36 +251,17 @@
         icon: "fa-comments",
         description: "Intelligent chatbot fine-tuned on a company knowledge base using Pinecone. Handles FAQs, troubleshoots issues, and escalates complex queries to human agents via Slack.",
         techStack: "Python · Google Cloud · n8n · Pinecone · Groq · Slack API",
-        results: [
-          "Automated 85% of support tickets — response time: hours → seconds",
-          "Integrated sentiment analysis to prioritize urgent conversations",
-          "94% customer satisfaction during pilot phase"
-        ]
+        link: "",
       },
       {
-        title: "MYKEJA",
+        title: "TWENDE",
         tag: "Full Stack / Geo",
-        icon: "fa-home",
-        description: "House hunting platform for tenants to find rentals and landlords to list properties. Features live location rating, 360° views, and booking for viewings.",
-        techStack: "React · Node.js · Express · MongoDB · Google Maps API",
-        results: [
-          "500+ tenants found homes in the first 3 months",
-          "Real-time location ratings boosted user trust",
-          "4.8 / 5 average user rating"
-        ]
+        icon: "fa-map-location-dot",
+        description: "Shows nearby places to explore and connect with nature, one can add place and can see where others have added. Social Media for Adventurers",
+        techStack: "React · Node.js · Google Cloud · Maps API",
+        link: "https://twendetrails.me",
       },
-      {
-        title: "Social Content Generator",
-        tag: "AI / Automation",
-        icon: "fa-magic",
-        description: "AI tool that generates social media content based on trending topics and user preferences, then schedules via Buffer.",
-        techStack: "GPT-4 · Buffer API · Python · Zapier",
-        results: [
-          "40% increase in engagement within month one",
-          "200+ pieces of content generated — saves 10+ hrs/week",
-          "25% follower growth across platforms"
-        ]
-      }
+
     ];
 
     /* ────────────────────────────────────────────────────────
@@ -289,7 +270,7 @@
     const SKILLS = [
       "Python",
       "LLMs & Prompt Engineering",
-      "n8n / Zapier Automation",
+      "n8n / Automation",
       "API Integration (REST)",
       "Google Cloud Platform",
       "Version Control (GitHub)",
@@ -301,11 +282,8 @@
     ──────────────────────────────────────────────────────── */
     const SERVICES = [
       "AI Workflow Consulting",
-      "Custom Automation Development",
       "Chatbot & RAG Implementation",
       "System & API Integration",
-      "Process Mining & Optimization",
-      "AI Training & Workshops"
     ];
 
   </script>
