@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-  <title>Caleb | AI Automation Engineer</title>
+  <title>Caleb | Software Engineer</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet">
@@ -39,19 +39,19 @@
     <section id="home" class="hero">
       <div class="container hero-inner">
         <div class="hero-text">
-          <p class="eyebrow mono">AI Automation Engineer &mdash; Nairobi, KE</p>
+          <p class="eyebrow mono">Software Engineer &mdash; Nairobi, KE</p>
           <h1>Hi, I'm <span class="accent">Caleb</span></h1>
-          <p class="hero-desc">I build intelligent workflows &amp; automation systems that turn repetitive work into <strong>autonomous pipelines</strong>.</p>
+          <p class="hero-desc">I build <strong>websites, applications, and automation systems</strong> that turn ideas into useful digital products.</p>
           <div class="hero-btns">
             <a href="#projects" class="btn-primary">See My Work</a>
             <a href="#contact" class="btn-ghost">Contact Me</a>
           </div>
           <div class="hero-stats">
-            <div class="stat"><span class="sn">85%</span><span class="sl">Tickets Automated</span></div>
+            <div class="stat"><span class="sn">5</span><span class="sl">Featured Projects</span></div>
             <div class="sdiv"></div>
-            <div class="stat"><span class="sn">3+</span><span class="sl">Live Projects</span></div>
+            <div class="stat"><span class="sn">3</span><span class="sl">Focus Areas</span></div>
             <div class="sdiv"></div>
-            <div class="stat"><span class="sn">500+</span><span class="sl">Users Impacted</span></div>
+            <div class="stat"><span class="sn">1</span><span class="sl">Goal: Useful Software</span></div>
           </div>
         </div>
         <div class="hero-photo-col">
@@ -95,12 +95,12 @@
           </div>
           <div class="about-content">
             <p class="sec-label mono">// about me</p>
-            <h2>The human <span class="accent">behind the bot</span></h2>
-            <p>I'm Caleb — an AI Automation Engineer based in Nairobi with a mission to transform repetitive tasks into intelligent, self-optimizing systems. I combine modern AI tools, API orchestration, and clean code to deliver solutions that scale.</p>
-            <p>My journey started with full-stack development and evolved into machine learning, RPA, and agentic AI. I believe the future is autonomous — and I'm building it one workflow at a time.</p>
+            <h2>The engineer <span class="accent">behind the work</span></h2>
+            <p>I'm Caleb — a software engineer building websites, full-stack applications, and practical automation solutions. I enjoy transforming real problems into software that people can use.</p>
+            <p>My projects span web and mobile experiences, data-driven applications, and retrieval-augmented AI workflows. I bring together frontend development, backend systems, databases, and APIs to create practical solutions.</p>
             <div class="chip-row">
               <span class="chip"><i class="fas fa-code"></i> Clean Code</span>
-              <span class="chip"><i class="fas fa-robot"></i> AI-First</span>
+              <span class="chip"><i class="fas fa-mobile-screen-button"></i> Web &amp; Mobile</span>
               <span class="chip"><i class="fas fa-layer-group"></i> Scalable</span>
             </div>
             <a href="caleb_cv.pdf" download class="btn-primary btn-icon" style="margin-top:1.75rem;">
@@ -204,7 +204,7 @@
 
   <footer>
     <div class="footer-inner">
-      <p class="mono footer-copy">© 2025 Caleb — AI Automation Engineer</p>
+      <p class="mono footer-copy">© 2026 Caleb — Software Engineer</p>
       <div class="footer-socials">
         <a href="https://github.com/Caleb0844" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
         <a href="https://linkedin.com/in/caleb-macharia-1919a3292" target="_blank" rel="noopener" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
@@ -242,7 +242,7 @@
          icon        — Font Awesome icon class (fa-*)
          description — short text shown on card
          techStack   — comma-separated tech used
-         link        — URL to the live project / repo (leave "" if none)
+         link        — URL to a live demo or app download (leave "" if none; no source links)
     ──────────────────────────────────────────────────────── */
     const PROJECTS = [
       {
@@ -261,6 +261,30 @@
         techStack: "React · Node.js · Google Cloud · Maps API",
         link: "https://twendetrails.me",
       },
+      {
+        title: "TWENDE Mobile App",
+        tag: "Mobile Application / Adventure",
+        icon: "fa-mobile-screen-button",
+        description: "Mobile app version of the TWENDE adventure platform, created to bring its exploration experience to mobile users. App file available through Google Drive.",
+        techStack: "Mobile App · Adventure & Exploration",
+        link: "https://drive.google.com/file/d/1n3zinHWSVqbDyQyOCcO-mXPU0WJokLRv/view?usp=drivesdk",
+      },
+      {
+        title: "Library Management System",
+        tag: "Software / Database",
+        icon: "fa-book-open",
+        description: "Library management software project focused on organizing library information and supporting administrative workflows.",
+        techStack: "Database · Application Development",
+        link: "",
+      },
+      {
+        title: "Task Management System",
+        tag: "Full-Stack Application",
+        icon: "fa-list-check",
+        description: "Task management application project for creating, organizing, scheduling, and tracking tasks.",
+        techStack: "Java · Spring Boot · MySQL · React",
+        link: "",
+      },
 
     ];
 
@@ -268,22 +292,28 @@
        SKILLS  — add or remove strings freely
     ──────────────────────────────────────────────────────── */
     const SKILLS = [
+      "Java & Spring Boot",
+      "JavaScript & React",
+      "HTML & CSS",
+      "MySQL & Database Design",
       "Python",
-      "LLMs & Prompt Engineering",
-      "n8n / Automation",
-      "API Integration (REST)",
+      "REST APIs & Integration",
+      "Retrieval-Augmented Generation (RAG)",
+      "n8n & Workflow Automation",
       "Google Cloud Platform",
-      "Version Control (GitHub)",
-      "Pinecone Vector DB"
+      "Git & GitHub",
+      "Pinecone Vector Database"
     ];
 
     /* ────────────────────────────────────────────────────────
-       SERVICES  — add or remove strings freely
+       SERVICES — edit these offers as your client work grows
     ──────────────────────────────────────────────────────── */
     const SERVICES = [
-      "AI Workflow Consulting",
-      "Chatbot & RAG Implementation",
-      "System & API Integration",
+      "Business Website Development",
+      "Web Application Development",
+      "Workflow & Business Automation",
+      "API & Systems Integration",
+      "AI Knowledge-Base / RAG Prototypes"
     ];
 
   </script>
